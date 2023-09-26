@@ -1,0 +1,27 @@
+
+/* 
+    Created on : 25 sept 2023, 21:52:48
+    Author     : Usuario
+*/
+#encabezado {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+#tituloPrincipal {
+    color: aquamarine;
+}
+
+.parrafosCentrados{
+    text-align: center;
+    font-weight: bold;
+    color: #666666;
+}
+
+.textoVerde{
+    color:greenyellow;
+}
+
+p, h1, span{
+    color: blue;
+}

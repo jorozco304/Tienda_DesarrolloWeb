@@ -6,12 +6,18 @@
             <packaging>jar</packaging>
         </packagings>
         <goals>
-            <goal>spring-boot:run</goal>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
         </goals>
         <properties>
-            <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
-            <run.mainClass>com.Tienda_DesarrolloWeb.Tienda_DesarrolloWebApplication</run.mainClass>
-            <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>com.Tienda_DesarrolloWeb.TiendaDesarrolloWebApplication</exec.mainClass>
+                <exec.executable>java</exec.executable>
+            
+            
+            
         </properties>
     </action>
     <action>
@@ -20,12 +26,18 @@
             <packaging>jar</packaging>
         </packagings>
         <goals>
-            <goal>spring-boot:run</goal>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
         </goals>
         <properties>
-            <run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
-            <run.mainClass>com.Tienda_DesarrolloWeb.Tienda_DesarrolloWebApplication</run.mainClass>
-            <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
+                <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>com.Tienda_DesarrolloWeb.TiendaDesarrolloWebApplication</exec.mainClass>
+                <exec.executable>java</exec.executable>
+            
+            
+            
             <jpda.listen>true</jpda.listen>
         </properties>
     </action>
@@ -36,11 +48,14 @@
         </packagings>
         <goals>
             <goal>process-classes</goal>
-            <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
         </goals>
         <properties>
-            <exec.args>-classpath %classpath com.Tienda_DesarrolloWeb.Tienda_DesarrolloWebApplication</exec.args>
+                <exec.vmArgs></exec.vmArgs>
+            <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+            <exec.mainClass>com.Tienda_DesarrolloWeb.TiendaDesarrolloWebApplication</exec.mainClass>
             <exec.executable>java</exec.executable>
+            <exec.appArgs></exec.appArgs>
         </properties>
     </action>
 </actions>
